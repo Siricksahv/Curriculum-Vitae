@@ -1,0 +1,330 @@
+:root {
+    color-scheme: light;
+    --color-accent: #2563eb;
+    --color-ink: #0f172a;
+    --color-muted: #64748b;
+    --color-surface: #f8fafc;
+}
+
+html.dark {
+    color-scheme: dark;
+}
+
+html {
+    scroll-padding-top: 5rem;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--color-surface);
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 3px;
+}
+
+header {
+    background: rgb(255 255 255 / 92%);
+    box-shadow: 0 1px 0 rgb(15 23 42 / 6%);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 9999px;
+    background: #f8fafc;
+    color: #475569;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+header nav a {
+    position: relative;
+    padding-block: 0.5rem;
+}
+
+header nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--color-accent);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+}
+
+header nav a:hover::after,
+header nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+#inicio {
+    background-color: var(--color-ink);
+    background-image:
+        radial-gradient(ellipse at 78% 22%, rgb(37 99 235 / 24%), transparent 35%),
+        linear-gradient(130deg, #0f172a 12%, #142746 58%, #10213b);
+}
+
+#inicio h1 {
+    max-width: 15ch;
+    line-height: 1.05;
+    text-wrap: balance;
+}
+
+#inicio .hero-badge {
+    background: rgb(255 255 255 / 7%);
+    border: 1px solid rgb(148 163 184 / 24%);
+    backdrop-filter: blur(12px);
+}
+
+section:not(#inicio) h2 {
+    letter-spacing: -0.04em;
+    text-transform: none;
+}
+
+#sobre-mi {
+    background: #fff;
+}
+
+#sobre-mi p {
+    max-width: 66ch;
+    margin-inline: auto;
+}
+
+#habilidades,
+#educacion {
+    background: var(--color-surface);
+}
+
+#habilidades .grid > div,
+#experiencia .relative.pl-8 > div,
+#educacion .grid > div {
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgb(15 23 42 / 4%);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+#habilidades .grid > div:hover,
+#experiencia .relative.pl-8 > div:hover,
+#educacion .grid > div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px rgb(15 23 42 / 9%);
+}
+
+.education-card {
+    display: block;
+    color: inherit;
+}
+
+.certificate-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transition: none;
+}
+
+.certificate-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.certificate-card-main {
+    display: block;
+    flex: 1;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.certificate-card-main:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 16px 32px rgb(15 23 42 / 9%);
+}
+
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: #2563eb;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.certificate-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.certificate-secondary-link {
+    align-self: flex-start;
+    margin: 0.75rem 0.25rem 0;
+}
+
+#contacto {
+    background-image: linear-gradient(145deg, #0f172a, #142746);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+}
+
+html.dark body,
+html.dark #sobre-mi,
+html.dark #habilidades,
+html.dark #experiencia,
+html.dark #educacion {
+    background-color: #0b1120;
+}
+
+html.dark header,
+html.dark #mobile-menu,
+html.dark .bg-white {
+    background-color: #111827;
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-slate-100 {
+    background-color: #1e293b;
+}
+
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-slate-700,
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+    color: #e2e8f0;
+}
+
+html.dark .text-gray-500 {
+    color: #94a3b8;
+}
+
+html.dark .text-blue-600 {
+    color: #60a5fa;
+}
+
+html.dark .bg-blue-100 {
+    background-color: #1e3a5f;
+}
+
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-gray-300 {
+    border-color: #334155;
+}
+
+html.dark .border-l-4.border-blue-600 {
+    border-left-color: #3b82f6;
+}
+
+html.dark .border-l-4.border-blue-600 .bg-gray-100 {
+    color: #cbd5e1;
+}
+
+html.dark .border-l-4.border-blue-600 .text-gray-500 {
+    color: #cbd5e1;
+}
+
+html.dark .border-l-4.border-blue-600 .text-blue-600 {
+    color: #60a5fa;
+}
+
+html.dark .hover\:bg-blue-50:hover {
+    background-color: #1e293b;
+}
+
+html.dark .theme-toggle {
+    border-color: #334155;
+    background: #1e293b;
+    color: #fbbf24;
+}
+
+html.dark .theme-toggle:hover {
+    background: #334155;
+    color: #fde68a;
+}
+
+html.dark .certificate-link {
+    color: #93c5fd;
+}
+
+html.dark .certificate-link:hover {
+    color: #bfdbfe;
+}
+
+html.dark header {
+    box-shadow: 0 1px 0 rgb(148 163 184 / 12%);
+}
+
+html.dark #experiencia .border-gray-100 {
+    border-color: #334155;
+}
+
+html.dark #experiencia .border-l-4 {
+    border-color: #334155;
+}
+
+html.dark #experiencia .border-l-4 .border-white {
+    border-color: #0b1120;
+}
+
+html.dark #experiencia .border-l-4 .bg-blue-600 {
+    background-color: #2563eb;
+}
+
+html.dark #habilidades .grid > div,
+html.dark #experiencia .relative.pl-8 > div,
+html.dark #educacion .grid > div {
+    box-shadow: 0 8px 24px rgb(0 0 0 / 16%);
+}
+
+html.dark #habilidades .grid > div:hover,
+html.dark #experiencia .relative.pl-8 > div:hover,
+html.dark #educacion .grid > div:hover {
+    box-shadow: 0 16px 32px rgb(0 0 0 / 28%);
+}
